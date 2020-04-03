@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
   validate :has_one_or_more_categories
 
+  has_one_attached :image
+
   def has_one_or_more_categories
     errors.add(:cateories, "- need at least one category") if categories.empty?
   end

@@ -33,7 +33,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :description
       f.input :price
-      f.input :image
+      f.input :image, as: :file
       f.input :categories, as: :select, input_html: { multiple: true }
     end
 
