@@ -14,13 +14,13 @@ ActiveAdmin.register Product do
     actions
   end
 
-  show do |product|
+  show do
     attributes_table do
       row :name
       row :description
       row :price
       row :image
-      row :cateories do |product|
+      row :cateories do
         product.categories.map(&:name).join(", ").html_safe
       end
     end
