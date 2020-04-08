@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :products
 
   root to: "products#index"
+
+  get "/p/:permalink", to: "pages#permalink", as: "permalink"
 end
