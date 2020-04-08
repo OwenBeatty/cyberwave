@@ -1,21 +1,21 @@
 <div class="card">
-  <% if @product.image.present? %>
+  <% if product.image.present? %>
     <div class="card-image">
       <figure class="image is-square">
-        <%= image_tag @product.image %>
+        <%= image_tag product.image %>
       </figure>
     </div>
   <% end %>
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4"><%= @product.name %></p>
-        <p class="subtitle is-6">$<%= @product.price %></p>
+        <p class="title is-4"><%= product.name %></p>
+        <p class="subtitle is-6">$<%= product.price %></p>
       </div>
     </div>
 
     <div class="content">
-      <%= @product.description %>
+      <%= truncate(product.description, length: 200, separator: ' ') %>
     </div>
   </div>
 </div>

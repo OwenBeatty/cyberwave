@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<h1><%= @category.name %></h1>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="container">
+  <ul class="columns is-multiline">
+    <% @category.products.each do |product| %>
+      <li class="column is-one-fifth">
+        <%= render partial: 'product', object: product %>
+      </li>
+    <% end %>
+  </ul>
+</div>
