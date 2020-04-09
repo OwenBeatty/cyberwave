@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   get "/p/:permalink", to: "pages#permalink", as: "permalink"
+
+  get "search", to: "products#search", as: "search"
 end

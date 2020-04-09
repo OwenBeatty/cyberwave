@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
     @products = Product.all.page(params[:page]).per(5)
   end
 
+  def search
+    @products = Product.search(params)
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show; end

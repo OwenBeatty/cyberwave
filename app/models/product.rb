@@ -9,4 +9,9 @@ class Product < ApplicationRecord
   def has_one_or_more_categories
     errors.add(:cateories, "- need at least one category") if categories.empty?
   end
+
+  def self.search(params)
+    products = Product.joins(:categories_products).where("products.name LIKE ? AND categories_products.category_id LIKE ?", "%#{params[:search_term]}%", "%#{params[:category]}%")
+    products
+  end
 end

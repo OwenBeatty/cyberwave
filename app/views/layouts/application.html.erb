@@ -29,6 +29,11 @@
           <%= link_to 'Contact', '/p/contact', :class => 'navbar-item' %>
         </div>
       </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <%= render partial: 'products/search' %>
+        </div>
+      </div>
     </nav>
     <%= yield %>
   </body>
