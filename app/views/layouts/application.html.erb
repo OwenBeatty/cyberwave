@@ -12,6 +12,24 @@
   </head>
 
   <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to 'Home', root_path, :class => 'navbar-item' %>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Categories</a>
+            <div class="navbar-dropdown">
+              <% @categories.each do |category| %>
+                <%= link_to category.name, category %>
+                <br>
+              <% end %>
+            </div>
+          </div>
+          <%= link_to 'About', '/p/about', :class => 'navbar-item' %>
+          <%= link_to 'Contact', '/p/contact', :class => 'navbar-item' %>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

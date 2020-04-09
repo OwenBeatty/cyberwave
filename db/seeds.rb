@@ -6,7 +6,7 @@ if Rails.env.development?
   AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
 end
 
-implant = Category.create(name: "Implant")
+implants = Category.create(name: "Implants")
 cyberlimbs = Category.create(name: "Cyberlimbs")
 cyberaudio = Category.create(name: "Cyberaudio")
 cyberoptics = Category.create(name: "Cyberoptics")
@@ -52,25 +52,25 @@ Product.create([
                    name:        "Adrenal Booster",
                    description: "An artificial gland which releases adrenal hormones on command.",
                    price:       179.99,
-                   categories:  [implant]
+                   categories:  [implants]
                  },
                  {
                    name:        "Independent Air Supply",
                    description: "A small artificial organ filled with a spongy oxygen fixing foam implanted in the lower lungs it allows an inactive person to hold their breath for up to 25 minutes, or an active person up to 10 minutes.",
                    price:       549.99,
-                   categories:  [implant]
+                   categories:  [implants]
                  },
                  {
                    name:        "Gill Implant",
                    description: "This implant allows the user to breath relatively clean water for up to 4 hours.",
                    price:       899.99,
-                   categories:  [implant]
+                   categories:  [implants]
                  },
                  {
                    name:        "Nasal Filters",
                    description: "These filters increase resistance against poison sleepdrugs or other breathable toxins.",
                    price:       229.99,
-                   categories:  [implant]
+                   categories:  [implants]
                  }
                ])
 
