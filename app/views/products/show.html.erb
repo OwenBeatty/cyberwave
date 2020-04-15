@@ -1,21 +1,28 @@
-<div class="card">
-  <% if @product.image.present? %>
-    <div class="card-image">
-      <figure class="image is-square">
-        <%= image_tag @product.image %>
-      </figure>
-    </div>
-  <% end %>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-        <p class="title is-4"><%= @product.name %></p>
-        <p class="subtitle is-6">$<%= @product.price %></p>
-      </div>
-    </div>
+<h1>Details</h1>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <div class="card">
+        <% if @product.image.present? %>
+          <div class="card-image">
+            <figure class="image is-square">
+              <%= image_tag @product.image %>
+            </figure>
+          </div>
+        <% end %>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"><%= @product.name %></p>
+              <p class="subtitle is-6">$<%= @product.price %></p>
+            </div>
+          </div>
 
-    <div class="content">
-      <%= @product.description %>
+          <div class="content">
+            <%= @product.description %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

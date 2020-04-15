@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_categories
-    @categories = Category.all
+    @categories_nav = Category.all
   end
 end

@@ -19,7 +19,7 @@
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Categories</a>
             <div class="navbar-dropdown">
-              <% @categories.each do |category| %>
+              <% @categories_nav.each do |category| %>
                 <%= link_to category.name, category %>
                 <br>
               <% end %>
@@ -35,6 +35,8 @@
         </div>
       </div>
     </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
