@@ -5,9 +5,7 @@
 <div class="container">
   <ul class="columns is-multiline">
     <% @products.each do |product| %>
-      <li class="column is-one-fifth">
-        <%= render partial: 'product', object: product %>
-      </li>
+      <%= render partial: 'product', object: product %>
     <% end %>
   </ul>
   <%= paginate @products %>
