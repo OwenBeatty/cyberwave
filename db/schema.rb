@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_005709) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "address"
-    t.integer "province_id"
+    t.integer "province_id", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
