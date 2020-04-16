@@ -20,7 +20,11 @@
 
           <div class="content">
             <p><%= @product.description %></p>
-            <p><%= link_to 'Add to cart', add_to_cart_path(@product.id), method: :post %></p>
+            <% if @cart.include?(@product) %>
+              <p>Product in cart.</p>
+            <% else %>
+              <p><%= link_to 'Add to cart', add_to_cart_path(@product.id), method: :post %></p>
+            <% end %>
           </div>
         </div>
       </div>

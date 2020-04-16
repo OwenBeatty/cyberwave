@@ -2,7 +2,14 @@
 
 <h1>Products</h1>
 
-<%= debug session[:cart] %>
+<details>
+  <summary>Cart</summary>
+  <ul>
+    <% @cart.each do |product| %>
+      <li><%= product.name %><%= button_to 'remove', remove_from_cart_path(product), method: :delete %></li>
+    <% end %>
+  </ul>
+</details>
 
 <div class="container">
   <ul class="columns is-multiline">
