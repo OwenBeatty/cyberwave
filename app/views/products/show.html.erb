@@ -19,7 +19,8 @@
           </div>
 
           <div class="content">
-            <%= @product.description %>
+            <p><%= @product.description %></p>
+            <p><%= link_to 'Add to cart', add_to_cart_path(@product.id), method: :post %></p>
           </div>
         </div>
       </div>

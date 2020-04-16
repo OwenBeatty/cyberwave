@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get "/p/:permalink", to: "pages#permalink", as: "permalink"
 
   get "search", to: "products#search", as: "search"
+
+  post "products/add_to_cart/:id", to: "products#add_to_cart", as: "add_to_cart"
+  delete "products/remove_from_cart/:id", to: "products#remove_from_cart", as: "remove_from_cart"
 end

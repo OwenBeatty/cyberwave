@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  before_action :initialize_session
 
   # GET /products
   # GET /products.json
@@ -9,6 +10,12 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.search(params)
+  end
+
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to root_path
   end
 
   # GET /products/1
@@ -73,5 +80,9 @@ class ProductsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def product_params
     params.require(:product).permit(:name, :description, :price, :image)
+  end
+
+  def initialize_session
+    session[:cart] ||= []
   end
 end
