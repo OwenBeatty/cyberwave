@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, value: current_user.name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, class: "label" %>
+    <%= form.text_field :address, value: current_user.address, class: "input" %>
+  </div>
+
+  <p>Notes: <%= @note[0..-3] %></p>
+  <p>Items: <%= @total %></p>
+  <p>Taxes: <%= number_with_precision(@taxes, precision: 2) %></p>
+  <p>Order total: <%= number_with_precision(@total + @taxes, precision: 2) %>
+
   <%# HIDDEN FIELD user_id %>
   <div class="field">
     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -21,23 +36,14 @@
     <%= form.hidden_field :status, value: "Confirmed" %>
   </div>
 
+  <%# HIDDEN FIELD total %>
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, value: current_user.address %>
+    <%= form.hidden_field :total, value: @total %>
   </div>
 
+  <%# HIDDEN FIELD note %>
   <div class="field">
-    <%= form.label :total %>
-    <%= form.text_field :total, value: @total %>
-  </div>
-
-  <p>Taxes: <%= number_with_precision(@taxes, precision: 2) %></p>
-
-  <p>Notes: <%= @note[0..-3] %></p>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_field :note %>
+    <%= form.hidden_field :note, value: @note[1..-3] %>
   </div>
 
   <div class="actions">
