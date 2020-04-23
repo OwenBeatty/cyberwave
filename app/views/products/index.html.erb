@@ -8,7 +8,9 @@
     <% @cart.each do |product| %>
       <li><%= product.name %> | <%= link_to 'remove', remove_from_cart_path(product), method: :delete %></li>
     <% end %>
-    <li><%= button_to 'Checkout', new_order_path, method: :get %></li>
+    <% if @cart.count > 0 %>
+      <li><%= button_to 'Checkout', new_order_path, method: :get %></li>
+    <% end %>
   </ul>
 </details>
 
