@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
+  <%# HIDDEN FIELD user_id %>
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
+  <%# HIDDEN FIELD status %>
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.hidden_field :status, value: "Confirmed" %>
   </div>
 
   <div class="field">
@@ -28,8 +28,12 @@
 
   <div class="field">
     <%= form.label :total %>
-    <%= form.text_field :total %>
+    <%= form.text_field :total, value: @total %>
   </div>
+
+  <p>Taxes: <%= number_with_precision(@taxes, precision: 2) %></p>
+
+  <p>Notes: <%= @note[0..-3] %></p>
 
   <div class="field">
     <%= form.label :note %>
