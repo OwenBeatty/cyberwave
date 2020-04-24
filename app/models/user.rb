@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :province
-  has_many :orders
+  has_many :orders, dependent: :restrict_with_exception
 
   validates :email, :name, :address, :province_id, presence: true
   validates :province_id, numericality: { only_integer: true }

@@ -2,6 +2,7 @@ class OrdersController < InheritedResources::Base
   before_action :initialize_session
   before_action :load_cart
   before_action :load_order_total
+  before_action :load_order_taxes
   before_action :load_order_notes
 
   private
@@ -24,7 +25,10 @@ class OrdersController < InheritedResources::Base
       total += product.price
     end
     @total = total
-    @taxes = (current_user.province.pst + current_user.province.gst + current_user.province.hst) * total
+  end
+
+  def load_order_taxes
+    @taxes = (current_user.province.pst + current_user.province.gst + current_user.province.hst) * @total
   end
 
   def load_order_notes
