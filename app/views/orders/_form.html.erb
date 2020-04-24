@@ -38,7 +38,7 @@
 
   <%# HIDDEN FIELD total %>
   <div class="field">
-    <%= form.hidden_field :total, value: @total %>
+    <%= form.hidden_field :total, value: @total + @taxes %>
   </div>
 
   <%# HIDDEN FIELD note %>
