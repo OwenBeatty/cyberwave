@@ -6,6 +6,9 @@ class Product < ApplicationRecord
 
   has_one_attached :image
 
+  validates :name, :description, :price, presence: true
+  validates :price, numericality: true
+
   def has_one_or_more_categories
     errors.add(:cateories, "- need at least one category") if categories.empty?
   end
