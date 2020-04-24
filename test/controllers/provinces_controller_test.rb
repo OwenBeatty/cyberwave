@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ProvincesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class ProvincesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create province" do
-    assert_difference('Province.count') do
+    assert_difference("Province.count") do
       post provinces_url, params: { province: { gst: @province.gst, hst: @province.hst, name: @province.name, pst: @province.pst } }
     end
 
@@ -39,7 +39,7 @@ class ProvincesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy province" do
-    assert_difference('Province.count', -1) do
+    assert_difference("Province.count", -1) do
       delete province_url(@province)
     end
 

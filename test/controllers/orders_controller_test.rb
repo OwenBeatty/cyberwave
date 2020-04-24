@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create order" do
-    assert_difference('Order.count') do
+    assert_difference("Order.count") do
       post orders_url, params: { order: { address: @order.address, note: @order.note, status: @order.status, total: @order.total, user_id: @order.user_id } }
     end
 
@@ -39,7 +39,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy order" do
-    assert_difference('Order.count', -1) do
+    assert_difference("Order.count", -1) do
       delete order_url(@order)
     end
 
