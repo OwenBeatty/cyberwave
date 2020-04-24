@@ -10,7 +10,11 @@
         </tr>
       <% end %>
     </table>
-    <%= button_to 'Checkout', new_order_path, method: :get, :class => 'button' %>
+    <% if user_signed_in? %>
+      <%= button_to 'Checkout', new_order_path, method: :get, :class => 'button' %>
+    <% else %>
+      <p>Please sign in to continue</p>
+    <% end %>
   <% else %>
     <p class="subtitle is-5">Your cart is empty</p>
   <% end %>

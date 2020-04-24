@@ -2,10 +2,10 @@
 
 <div class="container">
   <h1 class="subtitle is-1">Products</h1>
+  <%= paginate @products %>
   <ul class="columns is-multiline">
     <% @products.each do |product| %>
       <%= render partial: 'product', object: product %>
     <% end %>
   </ul>
-  <%= paginate @products %>
 </div>
