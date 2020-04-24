@@ -15,21 +15,29 @@
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-menu">
         <div class="navbar-start">
-          <%= link_to 'Home', root_path, :class => 'navbar-item' %>
+          <%= link_to 'Cyberwave', root_path, :class => 'navbar-item' %>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Categories</a>
             <div class="navbar-dropdown">
               <% @categories_nav.each do |category| %>
-                <%= link_to category.name, category %>
+                <%= link_to category.name, category, :class => 'navbar-item' %>
                 <br>
               <% end %>
             </div>
           </div>
           <%= link_to 'About', '/p/about', :class => 'navbar-item' %>
           <%= link_to 'Contact', '/p/contact', :class => 'navbar-item' %>
+          <%= link_to 'Cart', '/cart', :class => 'navbar-item' %>
         </div>
       </div>
       <div class="navbar-end">
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, edit_user_registration_path, :class => 'navbar-item' %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-item' %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, :class => 'navbar-item' %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-item' %>
+        <% end %>
         <div class="navbar-item">
           <%= render partial: 'products/search' %>
         </div>
@@ -38,14 +46,5 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <footer>
-      <% if user_signed_in? %>
-        <%= link_to current_user.name, edit_user_registration_path %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </footer>
   </body>
 </html>

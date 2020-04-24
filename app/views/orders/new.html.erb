@@ -1,7 +1,8 @@
-<h1>New Order</h1>
-
-<% if user_signed_in? %>
-  <%= render 'form', order: @order %>
-<% else %>
-  <p>You must be signed in to continue.</p>
-<% end %>
+<div class="container">
+  <h1 class="subtitle is-1">Checkout</h1>
+  <% if user_signed_in? %>
+    <%= render 'form', order: @order %>
+  <% else %>
+    <p class="subtitle is-5">You must be signed in to continue.</p>
+  <% end %>
+</div>

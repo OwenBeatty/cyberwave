@@ -5,6 +5,22 @@ class OrdersController < InheritedResources::Base
   before_action :load_order_taxes
   before_action :load_order_notes
 
+  # POST /orders
+  # POST /orders.json
+  def create
+    @order = Order.new(order_params)
+
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to @order, notice: "" }
+        format.json { render :show, status: :created, location: @order }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def order_params

@@ -21,10 +21,24 @@
     <%= form.text_field :address, value: current_user.address, class: "input" %>
   </div>
 
-  <p>Notes: <%= @note[0..-3] %></p>
-  <p>Items: <%= @total %></p>
-  <p>Taxes: <%= number_with_precision(@taxes, precision: 2) %></p>
-  <p>Order total: <%= number_with_precision(@total + @taxes, precision: 2) %>
+  <table class="table is-fullwidth">
+    <tr>
+      <th>Items in order:</th>
+      <th><%= @note[0..-3] %></th>
+    </tr>
+    <tr>
+      <th>Items total:</th>
+      <th>$<%= @total %></th>
+    </tr>
+    <tr>
+      <th>Taxes:</th>
+      <th>$<%= number_with_precision(@taxes, precision: 2) %></th>
+    </tr>
+    <tr>
+      <th>Order total:</th>
+      <th>$<%= number_with_precision(@total + @taxes, precision: 2) %></th>
+    </tr>
+  </table>
 
   <%# HIDDEN FIELD user_id %>
   <div class="field">
@@ -47,6 +61,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Place order", :class => 'button' %>
   </div>
 <% end %>

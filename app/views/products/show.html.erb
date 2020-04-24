@@ -1,31 +1,29 @@
-<h1>Details</h1>
 <div class="container">
-  <div class="columns is-centered">
-    <div class="column is-one-third">
-      <div class="card">
-        <% if @product.image.present? %>
-          <div class="card-image">
-            <figure class="image is-square">
-              <%= image_tag @product.image %>
-            </figure>
+  <h1 class="subtitle is-1">Details</h1>
+  <div class="column is-one-third">
+    <div class="card">
+      <% if @product.image.present? %>
+        <div class="card-image">
+          <figure class="image is-square">
+            <%= image_tag @product.image %>
+          </figure>
+        </div>
+      <% end %>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4"><%= @product.name %></p>
+            <p class="subtitle is-6">$<%= @product.price %></p>
           </div>
-        <% end %>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4"><%= @product.name %></p>
-              <p class="subtitle is-6">$<%= @product.price %></p>
-            </div>
-          </div>
+        </div>
 
-          <div class="content">
-            <p><%= @product.description %></p>
-            <% if @cart.include?(@product) %>
-              <p>Product in cart.</p>
-            <% else %>
-              <p><%= link_to 'Add to cart', add_to_cart_path(@product.id), method: :post %></p>
-            <% end %>
-          </div>
+        <div class="content">
+          <p><%= @product.description %></p>
+          <% if @cart.include?(@product) %>
+            <p>Product in cart.</p>
+          <% else %>
+            <p><%= link_to 'Add to cart', add_to_cart_path(@product.id), method: :post %></p>
+          <% end %>
         </div>
       </div>
     </div>

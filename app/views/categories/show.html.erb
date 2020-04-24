@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @category.name %></h1>
-
 <div class="container">
+  <h1 class="subtitle is-1"><%= @category.name %></h1>
   <ul class="columns is-multiline">
     <% @category.products.each do |product| %>
       <li class="column is-one-fifth">
